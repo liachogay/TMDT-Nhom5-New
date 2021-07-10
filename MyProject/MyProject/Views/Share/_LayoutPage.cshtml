@@ -115,10 +115,10 @@
                         @Html.ActionLink("TRANG CHỦ", "TrangChu", "Home")
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("GIỚI THIỆU", "GioiThieu", "GioiThieu")
+                        @Html.ActionLink("GIỚI THIỆU", "gioi-thieu")
                     </li>
                     <li class="nav-item active">
-                        @Html.ActionLink("SẢN PHẨM", "SanPhamPartial", "SanPham")
+                        <a href="/tat-ca">SẢN PHẨM</a>
                     </li>
                     @if (Session["taikhoan"] != null) { 
                         <li style="width: 200px;" class="text-right text-white position-relative login">
@@ -141,10 +141,10 @@
                         </li>
                     }
                     <li class="nav-item lastLi text-center position-relative GH">
-                        @Html.Action("GioHangPartial", "GioHang")
+                        @*@Html.Action("GioHangPartial", "gio-hang")*@
                         <ul class="gioHang">
                             <li class="nav-item">
-                                @Html.Action("ViewGioHangHover", "GioHang")
+                                @*@Html.Action("ViewGioHangHover", "gio-hang")*@
                             </li>
                         </ul>
                     </li>

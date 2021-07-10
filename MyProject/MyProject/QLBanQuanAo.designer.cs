@@ -863,8 +863,10 @@ namespace MyProject
 		private int _MaLoaiSP;
 		
 		private string _TenLoaiSP;
-		
-		private EntitySet<SanPham> _SanPhams;
+
+        private string _Slug;
+
+        private EntitySet<SanPham> _SanPhams;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -874,8 +876,10 @@ namespace MyProject
     partial void OnMaLoaiSPChanged();
     partial void OnTenLoaiSPChanging(string value);
     partial void OnTenLoaiSPChanged();
-    #endregion
-		
+	partial void OnSlugChanging(string value);
+	partial void OnSlugChanged();
+		#endregion
+
 		public LoaiSanPham()
 		{
 			this._SanPhams = new EntitySet<SanPham>(new Action<SanPham>(this.attach_SanPhams), new Action<SanPham>(this.detach_SanPhams));
@@ -921,7 +925,28 @@ namespace MyProject
 				}
 			}
 		}
-		
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Slug", DbType = "NVarChar(250)")]
+		public string Slug
+		{
+			get
+			{
+				return this._Slug;
+			}
+			set
+			{
+				if ((this.Slug != value))
+				{
+					this.OnSlugChanging(value);
+					this.SendPropertyChanging();
+					this._Slug = value;
+					this.SendPropertyChanged("Slug");
+					this.OnSlugChanged();
+				}
+			}
+		}
+
+
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LoaiSanPham_SanPham", Storage="_SanPhams", ThisKey="MaLoaiSP", OtherKey="MaLoaiSP")]
 		public EntitySet<SanPham> SanPhams
 		{
@@ -1143,8 +1168,10 @@ namespace MyProject
 		private string _MoTa;
 		
 		private string _GioiTinh;
-		
-		private System.Nullable<decimal> _GiaBan;
+
+        private string _Slug;
+
+        private System.Nullable<decimal> _GiaBan;
 		
 		private System.Nullable<decimal> _GiaNhap;
 		
@@ -1174,13 +1201,15 @@ namespace MyProject
     partial void OnMoTaChanged();
     partial void OnGioiTinhChanging(string value);
     partial void OnGioiTinhChanged();
-    partial void OnGiaBanChanging(System.Nullable<decimal> value);
+	partial void OnGiaBanChanging(System.Nullable<decimal> value);
     partial void OnGiaBanChanged();
     partial void OnGiaNhapChanging(System.Nullable<decimal> value);
     partial void OnGiaNhapChanged();
     partial void OnAnhChanging(string value);
     partial void OnAnhChanged();
-    partial void OnMaLoaiSPChanging(System.Nullable<int> value);
+	partial void OnSlugChanging(string value);
+	partial void OnSlugChanged();
+	partial void OnMaLoaiSPChanging(System.Nullable<int> value);
     partial void OnMaLoaiSPChanged();
     partial void OnMaNCCChanging(System.Nullable<int> value);
     partial void OnMaNCCChanged();
@@ -1275,7 +1304,28 @@ namespace MyProject
 				}
 			}
 		}
-		
+
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Slug", DbType = "NVarChar(250)")]
+		public string Slug
+		{
+			get
+			{
+				return this._Slug;
+			}
+			set
+			{
+				if ((this._Slug != value))
+				{
+					this.OnSlugChanging(value);
+					this.SendPropertyChanging();
+					this._Slug = value;
+					this.SendPropertyChanged("Slug");
+					this.OnSlugChanged();
+				}
+			}
+		}
+
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GiaBan", DbType="Decimal(18,0)")]
 		public System.Nullable<decimal> GiaBan
 		{

@@ -10,10 +10,10 @@
     <nav>
         <ul class="menuProduct">
             <li>
-                <a href="@Url.Action("SanPhamPartial", "SanPham")" class="tpnam_btn mb-0 listAll">Danh mục sản phẩm</a>
+                <a href="/tat-ca" class="tpnam_btn mb-0 listAll">Danh mục sản phẩm</a>
                 <ul class="tpnam_show">
                     @foreach (var item in ViewBag.loaiSP) {
-                        <li><a href="@Url.Action("SanPhamTheoLoai", "SanPham", new { @maLoaiSP = item.MaLoaiSP })">@item.TenLoaiSP</a></li>
+                        <li><a href="@Url.Content(item.Slug)">@item.TenLoaiSP</a></li>
                     }
                 </ul>
             </li>
@@ -33,7 +33,7 @@
     <div class="row">
         @foreach (var tpn in Model) {
             <div class="col-md-4 mb-3" style="box-shadow: 0 0 8px rgba(0,0,0,0.2)">
-                <a href="@Url.Action("XemChiTiet", "SanPham", new { @masp = tpn.MaSP })">
+                <a href="@Url.Content("/" + tpn.LoaiSanPham.Slug + "/" + tpn.Slug)">
                     <img src="@Url.Content("~/Images/" + tpn.Anh)" height="300" style="width:100%;" /></a>
                 <p class="mt-2 mb-0" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden">@tpn.TenSP.ToLower()</p>
                 <del style="font-size: 13px;" class="mr-2">500.000 VNĐ </del><span style="color: red">@tpn.GiaBan.Value.ToString("#,##0.###") VNĐ</span>

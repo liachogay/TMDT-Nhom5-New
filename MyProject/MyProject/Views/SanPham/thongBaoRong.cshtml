@@ -9,7 +9,7 @@
                 <a href="@Url.Action("SanPhamPartial", "SanPham")" class="tpnam_btn mb-0 listAll">Danh mục sản phẩm</a>
                 <ul class="tpnam_show">
                     @foreach (var item in ViewBag.loaiSP) {
-                        <li><a href="@Url.Action("SanPhamTheoLoai", "SanPham", new { @maLoaiSP = item.MaLoaiSP })">@item.TenLoaiSP</a></li>
+                        <li><a href="@Url.Content(item.SLug)">@item.TenLoaiSP</a></li>
                     }
                 </ul>
             </li>

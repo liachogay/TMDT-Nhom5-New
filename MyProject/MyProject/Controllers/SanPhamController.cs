@@ -1,4 +1,5 @@
 ﻿using MyProject.Models;
+using PagedList;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -37,6 +38,31 @@ namespace MyProject.Controllers
         {
             var listSanPham = db.SanPhams.OrderBy(sp => sp.TenSP).ToList();
             return View(listSanPham);
+        }
+
+        public ActionResult TheLoai(string category, int page = 1, int pageSize = 12)
+        {
+            var _category = db.LoaiSanPhams.SingleOrDefault(c => c.Slug == category);
+            if (_category == null) return HttpNotFound();
+
+            ViewBag.loaiSP = db.LoaiSanPhams.OrderBy(sp => sp.MaLoaiSP);
+            var listSanPham = db.SanPhams.Where(c => c.MaLoaiSP == _category.MaLoaiSP).OrderByDescending(sp => sp.MaSP).ToPagedList(page, pageSize);
+
+            return View("SanPhamPartial", listSanPham);
+        }
+
+        // Lay san pham dua tren slug
+        public ActionResult SanPhamSEO(string category, string slug)
+        {
+            var _category = db.LoaiSanPhams.SingleOrDefault(c => c.Slug == category);
+            if (_category == null) return HttpNotFound();
+
+            var _sanPham = db.SanPhams.SingleOrDefault(sp => sp.Slug == slug);
+            if (_sanPham == null) return HttpNotFound();
+
+            ViewBag.loaiSP = db.LoaiSanPhams.OrderBy(sp => sp.MaLoaiSP);
+
+            return View("XemChiTiet", _sanPham);
         }
 
         public ActionResult XemChiTiet(int masp)

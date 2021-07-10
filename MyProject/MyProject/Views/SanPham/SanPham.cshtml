@@ -26,7 +26,7 @@
                                 if (items.TenSP != null && items.MoTa != null && items.GioiTinh != null && items.Anh != null) {
                                     if (items.GioiTinh == "Nam") { 
                                 <div class="item" style="box-shadow: 0 0 8px 2px rgba(0,0,0,0.2)">
-                                    <a href="@Url.Action("XemChiTiet", "SanPham", new { @masp = items.MaSP })">
+                                    <a href="@Url.Action(items.Slug, items.LoaiSanPham.Slug)">
                                         <img src="@Url.Content("~/Images/" + items.Anh)" width="300" height="300" /></a>
                                     <p class="mt-2 mb-0 p-2" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden">@items.TenSP.ToLower()</p>
                                     <del style="font-size: 13px;" class="mr-2 p-2">500.000 VNĐ </del><span style="color: red">@items.GiaBan.Value.ToString("#,##0.###") VNĐ</span>
@@ -69,7 +69,7 @@
                                 if (items.TenSP != null && items.MoTa != null && items.GioiTinh != null && items.Anh != null) {
                                     if (items.GioiTinh == "Nữ") { 
                                 <div class="item" style="box-shadow: 0 0 8px 2px rgba(0,0,0,0.2)">
-                                    <a href="@Url.Action("XemChiTiet", "SanPham", new { @masp = items.MaSP })">
+                                    <a href="@Url.Action(items.Slug, items.LoaiSanPham.Slug)">
                                         <img src="@Url.Content("~/Images/" + items.Anh)" width="300" height="300" /></a>
                                     <p class="mt-2 mb-0 p-2" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden">@items.TenSP.ToLower()</p>
                                     <del style="font-size: 13px;" class="mr-2 p-2">500.000 VNĐ </del><span style="color: red">@items.GiaBan.Value.ToString("#,##0.###") VNĐ</span>
@@ -111,7 +111,7 @@
                             @foreach (var items in Model) {
                                 if (items.TenSP != null && items.MoTa != null && items.GioiTinh != null && items.Anh != null) {
                                 <div class="item" style="box-shadow: 0 0 8px 2px rgba(0,0,0,0.2)">
-                                    <a href="@Url.Action("XemChiTiet", "SanPham", new { @masp = items.MaSP })">
+                                    <a href="@Url.Action(items.Slug, items.LoaiSanPham.Slug)">
                                         <img src="@Url.Content("~/Images/" + items.Anh)" width="300" height="300" /></a>
                                     <p class="mt-2 mb-0 p-2" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden">@items.TenSP.ToLower()</p>
                                     <del style="font-size: 13px;" class="mr-2 p-2">500.000 VNĐ </del><span style="color: red">@items.GiaBan.Value.ToString("#,##0.###") VNĐ</span>
