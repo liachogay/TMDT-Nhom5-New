@@ -20,6 +20,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -517,6 +519,7 @@
     <Content Include="Views\SanPham\thongBaoRong.cshtml" />
     <Content Include="Views\SanPham\timKiemSanPham.cshtml" />
     <Content Include="Views\ThemXoaSua\ThemSanPham.cshtml" />
+    <Content Include="Views\Home\GioiThieu.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

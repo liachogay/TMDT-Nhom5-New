@@ -10,15 +10,34 @@ namespace MyProject
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "dang-nhap",
+                url: "DangNhap/DangNhap",
+                defaults: new { controller = "DangNhap", action = "DangNhap" }
+            );
+
+            routes.MapRoute(
+                name: "user",
+                url: "User/{action}",
+                defaults: new { controller = "User" }
+            );
+
+            routes.MapRoute(
                 name: "gioi-thieu",
-                url: "GioiThieu/GioiThieu",
-                defaults: new { controller = "GioiThieu", action = "GioiThieu" }
+                url: "gioi-thieu",
+                defaults: new { controller = "Home", action = "GioiThieu" }
             );
 
             routes.MapRoute(
                 name: "gio-hang",
                 url: "gio-hang",
                 defaults: new { controller = "GioHang", action = "GioHang" }
+            );
+
+
+            routes.MapRoute(
+                name: "gio-hang-func",
+                url: "GioHang/{action}",
+                defaults: new { controller = "GioHang" }
             );
 
             routes.MapRoute(

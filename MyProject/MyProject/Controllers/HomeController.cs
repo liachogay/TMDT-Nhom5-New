@@ -19,5 +19,10 @@ namespace MyProject.Controllers
         public ActionResult Form() {
             return PartialView();
         }
+
+        public ActionResult GioiThieu()
+        {
+            return View();
+        }
     }
 }

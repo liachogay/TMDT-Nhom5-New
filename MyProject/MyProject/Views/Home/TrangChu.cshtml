@@ -53,12 +53,13 @@
                         @Html.ActionLink("TRANG CHỦ", "TrangChu", "Home")
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("GIỚI THIỆU", "GioiThieu", "GioiThieu")
+                        <a href="/gioi-thieu">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("SẢN PHẨM", "SanPhamPartial", "SanPham")
+                        <a href="/tat-ca">SẢN PHẨM</a>
                     </li>
-                    @if (Session["taikhoan"] != null) { 
+                    @if (Session["taikhoan"] != null)
+                    {
                         <li style="width: 200px;" class="text-right text-white position-relative login">
                             <span class="mr-2">Xin chào</span><span class="text-white" style="text-decoration: none; cursor: pointer">@Session["User"]</span>
                             <div class="optionLogin">
@@ -66,7 +67,8 @@
                             </div>
                         </li>
                     }
-                    else {
+                    else
+                    {
                         <li class="nav-item position-relative login">
                             <span class="text-white font-weight-bold" style="text-decoration: none; cursor: pointer">ĐĂNG NHẬP</span>
                             <div class="optionLogin">
