@@ -44,10 +44,15 @@
             <div class="row">
                 <div class="col-md-12">
                     <button class="btn btn-danger" type="submit" id="btnDatHang">Xác nhận đặt hàng</button>
-                    
+
                     <a href="@Url.Action("PaymentWithPaypal", "GioHang")">
                         <button class="btn btn-danger" type="button" id="btnDatHangPaypal">
                             Thanh toán bằng paypal
+                        </button>
+                    </a>
+                    <a href="@Url.Action("PaymentWithVNPay", "GioHang")">
+                        <button class="btn btn-danger" type="button" id="btnDatHangPaypal">
+                            Thanh toán bằng VNPay
                         </button>
                     </a>
                 </div>

@@ -134,6 +134,7 @@
     </Compile>
     <Compile Include="Models\GioHang.cs" />
     <Compile Include="Models\Information.cs" />
+    <Compile Include="Models\OrderInfo.cs" />
     <Compile Include="Models\PaypalConfiguration.cs" />
     <Compile Include="Models\PaypalLogger.cs" />
     <Compile Include="Models\Product.cs" />
@@ -144,6 +145,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLBanQuanAo.dbml</DependentUpon>
     </Compile>
+    <Compile Include="VnPayLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
