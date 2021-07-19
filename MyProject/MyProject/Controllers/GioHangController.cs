@@ -337,7 +337,30 @@ namespace MyProject.Controllers
                 PaypalLogger.Log("Error: " + e.Message);
                 return View("Failure");
             }
-            return View("Success");
+            // Thêm đơn hàng
+            HoaDon ddh = new HoaDon();
+            KhachHang kh = (KhachHang)Session["taikhoan"];
+            List<GioHang> gh = LayGioHang();
+            ddh.MaKH = kh.MaKH;
+            ddh.NgayDat = DateTime.Now;
+            ddh.NgayGiao = DateTime.Now;
+            ddh.TinhTrang = "Đã thanh toán";
+            db.HoaDons.InsertOnSubmit(ddh);
+            db.SubmitChanges();
+            Session.Add("NgayGiao", ddh.NgayGiao);
+            Session.Add("MaHD", ddh.MaHD);
+
+            foreach (var item in gh)
+            {
+                ChiTietHoaDon ctdh = new ChiTietHoaDon();
+                ctdh.MaHD = ddh.MaHD;
+                ctdh.MaSP = item.maSP;
+                ctdh.SoLuong = item.soLuong;
+                ctdh.DonGia = (decimal)item.donGia;
+                db.ChiTietHoaDons.InsertOnSubmit(ctdh);
+            }
+            db.SubmitChanges();
+            return RedirectToAction("XacNhanDatHang", "GioHang");
         }
 
         public ActionResult PaymentWithVNPay()
@@ -396,7 +419,7 @@ namespace MyProject.Controllers
             {
                 return View("Failure");
             }
-            return View("Success");
+            return RedirectToAction("XacNhanDatHang", "GioHang");
         }
     }
 }
